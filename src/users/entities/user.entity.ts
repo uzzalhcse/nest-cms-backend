@@ -4,7 +4,6 @@ import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
-
   @Column()
   name: string;
 
@@ -17,6 +16,6 @@ export class User {
   @Column()
   password: string;
 
-  @Column({default: true})
+  @Column({ default: true })
   isActive: boolean;
 }
