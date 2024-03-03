@@ -4,8 +4,6 @@ import { AuthService } from './auth.service';
 import { UsersModule } from '../users/users.module';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './constants';
-import { AuthGuard } from './auth.guard';
-import { APP_GUARD } from '@nestjs/core';
 
 @Module({
   imports: [
@@ -18,11 +16,11 @@ import { APP_GUARD } from '@nestjs/core';
   ],
   controllers: [AuthController],
   providers: [
-    AuthService,
-    {
-      provide: APP_GUARD,
-      useClass: AuthGuard
-    }
+    AuthService
+    // { // Todo: uncomment this to enable global guard again
+    //   provide: APP_GUARD,
+    //   useClass: AuthGuard
+    // }
   ]
 })
 export class AuthModule {}
