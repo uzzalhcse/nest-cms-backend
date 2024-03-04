@@ -1,6 +1,7 @@
 // pagination.service.ts
 
 import { Injectable } from '@nestjs/common';
+import { PageMeta } from '../common/dto/page-meta.dto';
 
 @Injectable()
 export class PaginationService {
@@ -8,13 +9,13 @@ export class PaginationService {
     data: any[],
     page: number,
     limit: number
-  ): { data: any[]; meta: PaginationMeta } {
+  ): { data: any[]; meta: PageMeta } {
     const startIndex = (page - 1) * limit;
     const endIndex = page * limit;
 
     const paginatedData = data.slice(startIndex, endIndex);
 
-    const paginationMeta: PaginationMeta = {
+    const paginationMeta: PageMeta = {
       totalItems: data.length,
       itemsPerPage: limit,
       currentPage: page,
@@ -23,11 +24,4 @@ export class PaginationService {
 
     return { data: paginatedData, meta: paginationMeta };
   }
-}
-
-export interface PaginationMeta {
-  totalItems: number;
-  itemsPerPage: number;
-  currentPage: number;
-  totalPages: number;
 }

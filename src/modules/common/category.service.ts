@@ -6,7 +6,7 @@ import { FindManyOptions, Repository } from 'typeorm';
 import { Category } from './entities/category.entity';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
-import { PaginationService } from '../pagination/pagination.service';
+import { PaginationService } from '../../pagination/pagination.service';
 
 @Injectable()
 export class CategoryService {
