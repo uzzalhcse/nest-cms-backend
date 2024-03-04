@@ -14,8 +14,8 @@ import { CategoryService } from './category.service';
 import { Category } from './entities/category.entity';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { CreateCategoryDto } from './dto/create-category.dto';
-import { Paginable } from '../../pagination/pagination.decorator';
 import { ApiResponse } from '../../utils/api-response.decorator';
+import { Paginable } from '../../decorators/pagination.decorator';
 
 @Controller('categories')
 export class CategoryController {

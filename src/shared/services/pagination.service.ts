@@ -1,7 +1,7 @@
 // pagination.service.ts
 
 import { Injectable } from '@nestjs/common';
-import { PageMeta } from '../common/dto/page-meta.dto';
+import { PageMeta } from '../../common/dto/page-meta.dto';
 
 @Injectable()
 export class PaginationService {

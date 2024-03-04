@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { PaginationModule } from './pagination/pagination.module';
 import { ApiResponseInterceptor } from './utils/api-response.interceptor';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { User } from './modules/users/entities/user.entity';
@@ -8,6 +7,7 @@ import { Category } from './modules/common/entities/category.entity';
 import { UsersModule } from './modules/users/users.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { CommonModule } from './modules/common/common.module';
+import { SharedModule } from './shared/shared.module';
 
 @Module({
   imports: [
@@ -24,7 +24,7 @@ import { CommonModule } from './modules/common/common.module';
     UsersModule,
     AuthModule,
     CommonModule,
-    PaginationModule
+    SharedModule
   ],
   controllers: [],
   providers: [

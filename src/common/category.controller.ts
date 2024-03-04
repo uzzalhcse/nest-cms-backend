@@ -10,12 +10,12 @@ import {
   Put,
   Query
 } from '@nestjs/common';
-import { Paginable } from '../pagination/pagination.decorator';
 import { ApiResponse } from '../utils/api-response.decorator';
 import { CategoryService } from '../modules/common/category.service';
 import { Category } from '../modules/common/entities/category.entity';
 import { CreateCategoryDto } from '../modules/common/dto/create-category.dto';
 import { UpdateCategoryDto } from '../modules/common/dto/update-category.dto';
+import { Paginable } from '../decorators/pagination.decorator';
 
 @Controller('categories')
 export class CategoryController {

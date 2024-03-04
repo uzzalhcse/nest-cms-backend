@@ -8,7 +8,7 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PaginationService } from './pagination.service';
+import { PaginationService } from '../shared/services/pagination.service';
 
 @Injectable()
 export class PaginationInterceptor implements NestInterceptor {
