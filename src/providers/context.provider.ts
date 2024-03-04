@@ -31,14 +31,6 @@ export class ContextProvider {
     ContextProvider.set(ContextProvider.authUserKey, user);
   }
 
-  static setLanguage(language: string): void {
-    ContextProvider.set(ContextProvider.languageKey, language);
-  }
-
-  static getLanguage(): LanguageCode | undefined {
-    return ContextProvider.get<LanguageCode>(ContextProvider.languageKey);
-  }
-
   static getAuthUser(): User | undefined {
     return ContextProvider.get<User>(ContextProvider.authUserKey);
   }

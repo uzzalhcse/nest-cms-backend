@@ -1,6 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { PaginationModule } from './pagination/pagination.module';
 import { ApiResponseInterceptor } from './utils/api-response.interceptor';
@@ -28,9 +26,8 @@ import { CommonModule } from './modules/common/common.module';
     CommonModule,
     PaginationModule
   ],
-  controllers: [AppController],
+  controllers: [],
   providers: [
-    AppService,
     {
       provide: APP_INTERCEPTOR,
       useClass: ApiResponseInterceptor
