@@ -23,7 +23,7 @@ export class GeneratorProvider {
     }
 
     const exec = new RegExp(
-      `(?<=https://s3.${process.env.AWS_S3_BUCKET_NAME_REGION}.amazonaws.com/${process.env.AWS_S3_BUCKET_NAME}/).*`,
+      `(?<=https://s3.${process.env.AWS_S3_BUCKET_NAME_REGION}.amazonaws.com/${process.env.AWS_S3_BUCKET_NAME}/).*`
     ).exec(publicUrl);
 
     if (!exec) {
@@ -62,5 +62,10 @@ export class GeneratorProvider {
       .toString(36)
       .replaceAll(/[^\dA-Za-z]+/g, '')
       .slice(0, Math.max(0, length));
+  }
+
+  static generateSlug(string: string): string {
+    // Convert spaces to dashes and make it lowercase
+    return string.replace(/\s+/g, '-').toLowerCase();
   }
 }

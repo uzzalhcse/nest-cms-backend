@@ -2,12 +2,13 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ApiResponseInterceptor } from './utils/api-response.interceptor';
 import { APP_INTERCEPTOR } from '@nestjs/core';
-import { User } from './modules/users/entities/user.entity';
 import { Category } from './modules/common/entities/category.entity';
-import { UsersModule } from './modules/users/users.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { CommonModule } from './modules/common/common.module';
 import { SharedModule } from './shared/shared.module';
+import { BlogModule } from './modules/blog/blog.module';
+import { UserModule } from './modules/user/user.module';
+import { User } from './modules/user/entities/user.entity';
 
 @Module({
   imports: [
@@ -21,10 +22,11 @@ import { SharedModule } from './shared/shared.module';
       entities: [User, Category],
       synchronize: true
     }),
-    UsersModule,
     AuthModule,
     CommonModule,
-    SharedModule
+    SharedModule,
+    BlogModule,
+    UserModule
   ],
   controllers: [],
   providers: [

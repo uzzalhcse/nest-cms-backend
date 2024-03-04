@@ -11,7 +11,7 @@ import {
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
 import { AuthGuard } from './auth.guard';
-import { Public } from './decorators/public.decorator';
+import { Public } from '../../decorators/public.decorator';
 
 @Controller('auth')
 export class AuthController {

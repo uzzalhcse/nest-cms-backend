@@ -5,7 +5,7 @@ import {
   type NestInterceptor
 } from '@nestjs/common';
 
-import { type User } from '../modules/users/entities/user.entity';
+import { type User } from '../modules/user/entities/user.entity';
 import { ContextProvider } from '../providers';
 
 @Injectable()
