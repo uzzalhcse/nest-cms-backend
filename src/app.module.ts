@@ -9,6 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { BlogModule } from './modules/blog/blog.module';
 import { UserModule } from './modules/user/user.module';
 import { User } from './modules/user/entities/user.entity';
+import { Blog } from './modules/blog/entities/blog.entity';
 
 @Module({
   imports: [
@@ -19,7 +20,7 @@ import { User } from './modules/user/entities/user.entity';
       username: 'root',
       password: 'password',
       database: 'nestify-cms',
-      entities: [User, Category],
+      entities: [User, Category, Blog],
       synchronize: true
     }),
     AuthModule,

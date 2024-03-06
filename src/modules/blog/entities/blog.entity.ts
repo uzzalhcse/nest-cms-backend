@@ -1,6 +1,13 @@
-import { Column, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn
+} from 'typeorm';
 import { User } from '../../user/entities/user.entity';
 
+@Entity()
 export class Blog {
   @PrimaryGeneratedColumn()
   id: number;
@@ -23,7 +30,7 @@ export class Blog {
   @Column({ default: true })
   is_published: boolean;
 
-  @Column({ default: true })
+  @Column({ nullable: true })
   user_id: number;
 
   @ManyToOne(() => User, { nullable: true, onDelete: 'CASCADE' })

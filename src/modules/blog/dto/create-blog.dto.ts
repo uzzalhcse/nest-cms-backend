@@ -1,10 +1,9 @@
-import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsNotEmpty, IsOptional } from 'class-validator';
 
 export class CreateBlogDto {
   @IsNotEmpty()
   title: string;
-  @IsOptional()
-  thumbnail: string;
+
   @IsOptional()
   description?: string;
 
