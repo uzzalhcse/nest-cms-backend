@@ -10,6 +10,8 @@ import { BlogModule } from './modules/blog/blog.module';
 import { UserModule } from './modules/user/user.module';
 import { User } from './modules/user/entities/user.entity';
 import { Blog } from './modules/blog/entities/blog.entity';
+import { ProductModule } from './modules/product/product.module';
+import { BrandModule } from './modules/brand/brand.module';
 
 @Module({
   imports: [
@@ -27,7 +29,9 @@ import { Blog } from './modules/blog/entities/blog.entity';
     CommonModule,
     SharedModule,
     BlogModule,
-    UserModule
+    UserModule,
+    ProductModule,
+    BrandModule
   ],
   controllers: [],
   providers: [
