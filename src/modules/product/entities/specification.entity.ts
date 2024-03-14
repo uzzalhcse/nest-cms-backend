@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Product } from './product.entity';
 
 @Entity()
 export class Specification {
@@ -14,5 +15,6 @@ export class Specification {
   @Column()
   value: string;
 
-  // Add other properties as needed
+  @ManyToOne(() => Product, (product) => product.specifications)
+  product: Product;
 }

@@ -1,18 +1,16 @@
+// specification.service.ts
+
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Specification } from './entities/specification.entity';
+import { Specification } from '../entities/specification.entity';
 
 @Injectable()
 export class SpecificationService {
   constructor(
     @InjectRepository(Specification)
-    private readonly specificationRepository: Repository<Specification>
+    private specificationRepository: Repository<Specification>
   ) {}
-
-  async create(specification: Specification): Promise<Specification> {
-    return this.specificationRepository.save(specification);
-  }
 
   async findAll(): Promise<Specification[]> {
     return this.specificationRepository.find();
@@ -22,11 +20,19 @@ export class SpecificationService {
     return this.specificationRepository.findOneBy({ id });
   }
 
+  async create(
+    specificationData: Partial<Specification>
+  ): Promise<Specification> {
+    const specification =
+      this.specificationRepository.create(specificationData);
+    return this.specificationRepository.save(specification);
+  }
+
   async update(
     id: number,
-    updateSpecification: Partial<Specification>
+    specificationData: Partial<Specification>
   ): Promise<Specification> {
-    await this.specificationRepository.update(id, updateSpecification);
+    await this.specificationRepository.update(id, specificationData);
     return this.specificationRepository.findOneBy({ id });
   }
 

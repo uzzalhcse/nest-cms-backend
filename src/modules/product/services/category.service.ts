@@ -3,10 +3,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { FindManyOptions, Repository } from 'typeorm';
-import { Category } from './entities/category.entity';
-import { CreateCategoryDto } from './dto/create-category.dto';
-import { UpdateCategoryDto } from './dto/update-category.dto';
-import { PaginationService } from '../../shared/services/pagination.service';
+import { Category } from '../entities/category.entity';
+import { CreateCategoryDto } from '../dto/create-category.dto';
+import { UpdateCategoryDto } from '../dto/update-category.dto';
+import { PaginationService } from '../../../shared/services/pagination.service';
 
 @Injectable()
 export class CategoryService {

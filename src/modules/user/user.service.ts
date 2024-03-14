@@ -4,9 +4,6 @@ import { UpdateUserDto } from './dto/update-user.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from './entities/user.entity';
 import { FindManyOptions, Repository, UpdateResult } from 'typeorm';
-import { Category } from '../common/entities/category.entity';
-import { CreateCategoryDto } from '../common/dto/create-category.dto';
-import { UpdateCategoryDto } from '../common/dto/update-category.dto';
 
 @Injectable()
 export class UserService {

@@ -8,15 +8,14 @@ import {
   Param,
   Post,
   Put,
-  Query,
   UseInterceptors
 } from '@nestjs/common';
-import { CategoryService } from './category.service';
-import { Category } from './entities/category.entity';
-import { UpdateCategoryDto } from './dto/update-category.dto';
-import { CreateCategoryDto } from './dto/create-category.dto';
-import { ApiResponse } from '../../utils/api-response.decorator';
-import { Paginable } from '../../decorators/pagination.decorator';
+import { CategoryService } from '../services/category.service';
+import { Category } from '../entities/category.entity';
+import { UpdateCategoryDto } from '../dto/update-category.dto';
+import { CreateCategoryDto } from '../dto/create-category.dto';
+import { ApiResponse } from '../../../utils/api-response.decorator';
+import { Paginable } from '../../../decorators/pagination.decorator';
 import { NoFilesInterceptor } from '@nestjs/platform-express';
 
 @Controller('categories')

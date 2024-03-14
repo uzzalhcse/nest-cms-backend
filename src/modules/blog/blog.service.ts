@@ -67,7 +67,9 @@ export class BlogService {
   ): Promise<Blog> {
     // Find the existing blog by ID
     const existingBlog = await this.findOne(id);
-
+    if (!existingBlog) {
+      throw new NotFoundException('Blog not found');
+    }
     // Update the properties of the existing blog with values from updateBlogDto
     existingBlog.title = updateBlogDto.title || existingBlog.title;
     existingBlog.slug = updateBlogDto.title

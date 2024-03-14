@@ -3,9 +3,11 @@ import {
   Column,
   Entity,
   JoinColumn,
+  ManyToMany,
   ManyToOne,
   PrimaryGeneratedColumn
 } from 'typeorm';
+import { Product } from './product.entity';
 
 @Entity()
 export class Category {
@@ -30,6 +32,10 @@ export class Category {
 
   @Column({ nullable: true })
   parent_id: number;
+
+  // Many-to-Many relationship with Product
+  @ManyToMany(() => Product, (product) => product.categories)
+  products: Product[];
 
   @BeforeInsert()
   generateSlug() {

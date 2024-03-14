@@ -1,14 +1,14 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
+  Controller,
+  Delete,
+  Get,
   Param,
-  Put,
-  Delete
+  Post,
+  Put
 } from '@nestjs/common';
-import { SpecificationService } from './specification.service';
-import { Specification } from './entities/specification.entity';
+import { SpecificationService } from '../services/specification.service';
+import { Specification } from '../entities/specification.entity';
 
 @Controller('specifications')
 export class SpecificationController {
