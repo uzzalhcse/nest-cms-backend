@@ -100,4 +100,21 @@ export class BrandService {
     const brand = await this.findOne(id);
     await this.brandRepository.remove(brand);
   }
+
+  async seed() {
+    const brandsToCreate = 50;
+    const brands = [];
+
+    for (let i = 0; i < brandsToCreate; i++) {
+      const brand = new Brand();
+      brand.name = `Brand ${i + 1}`;
+      brand.slug = GeneratorProvider.generateSlug(brand.name);
+      brand.icon = '/public/uploads/icons/default.png';
+      // Set other properties as needed
+      brands.push(brand);
+    }
+
+    await this.brandRepository.save(brands);
+    console.log(`${brands.length} brands seeded successfully.`);
+  }
 }

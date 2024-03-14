@@ -13,6 +13,7 @@ import { ProductModule } from './modules/product/product.module';
 import { Product } from './modules/product/entities/product.entity';
 import { Brand } from './modules/product/entities/brand.entity';
 import { Specification } from './modules/product/entities/specification.entity';
+import { SnakeNamingStrategy } from './snake-naming.strategy';
 
 @Module({
   imports: [
@@ -24,7 +25,8 @@ import { Specification } from './modules/product/entities/specification.entity';
       password: 'root',
       database: 'nestify-cms',
       entities: [User, Category, Brand, Product, Specification, Blog],
-      synchronize: true
+      synchronize: true,
+      namingStrategy: new SnakeNamingStrategy()
     }),
     AuthModule,
     SharedModule,

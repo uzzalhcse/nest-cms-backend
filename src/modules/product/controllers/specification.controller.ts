@@ -24,6 +24,10 @@ export class SpecificationController {
     return this.specificationService.findAll();
   }
 
+  @Get('/seed')
+  seed() {
+    return this.specificationService.seed();
+  }
   @Get(':id')
   findOne(@Param('id') id: string): Promise<Specification> {
     return this.specificationService.findOne(Number(id));

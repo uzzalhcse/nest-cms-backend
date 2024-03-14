@@ -29,6 +29,10 @@ export class CategoryController {
     return this.categoryService.findAll();
   }
 
+  @Get('/seed')
+  seed() {
+    return this.categoryService.seed();
+  }
   @Get(':id')
   @ApiResponse('Category List')
   async findOne(@Param('id') id: number): Promise<Category> {

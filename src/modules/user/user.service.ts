@@ -16,7 +16,7 @@ export class UserService {
       relations: ['parent']
     };
 
-    return this.userRepository.find(options);
+    return this.userRepository.find();
   }
 
   async findOneByEmail(email: string): Promise<User> {
@@ -65,5 +65,22 @@ export class UserService {
 
     // Remove the category from the database
     await this.userRepository.remove(user);
+  }
+
+  async seed() {
+    const itemsToCreate = 50;
+    const items = [];
+
+    for (let i = 0; i < itemsToCreate; i++) {
+      const item = new User();
+      item.name = `User ${i + 1}`;
+      item.email = `user${i + 1}@gmail.com`;
+      item.password = '123456';
+      // Set other properties as needed
+      items.push(item);
+    }
+
+    await this.userRepository.save(items);
+    console.log(`${items.length} users seeded successfully.`);
   }
 }

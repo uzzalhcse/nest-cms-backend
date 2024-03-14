@@ -25,7 +25,10 @@ export class ProductController {
   findAll(): Promise<Product[]> {
     return this.productService.findAll();
   }
-
+  @Get('/seed')
+  seed() {
+    return this.productService.seed();
+  }
   @Get(':id')
   findOne(@Param('id') id: string): Promise<Product> {
     return this.productService.findOne(Number(id));

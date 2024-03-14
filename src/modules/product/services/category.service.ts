@@ -7,6 +7,7 @@ import { Category } from '../entities/category.entity';
 import { CreateCategoryDto } from '../dto/create-category.dto';
 import { UpdateCategoryDto } from '../dto/update-category.dto';
 import { PaginationService } from '../../../shared/services/pagination.service';
+import { GeneratorProvider } from '../../../providers';
 
 @Injectable()
 export class CategoryService {
@@ -87,5 +88,21 @@ export class CategoryService {
 
     // Remove the category from the database
     await this.categoryRepository.remove(category);
+  }
+  async seed() {
+    const itemsToCreate = 50;
+    const items = [];
+
+    for (let i = 0; i < itemsToCreate; i++) {
+      const item = new Category();
+      item.name = `Category ${i + 1}`;
+      item.slug = GeneratorProvider.generateSlug(item.name);
+      item.icon = '/public/uploads/icons/default.png';
+      // Set other properties as needed
+      items.push(item);
+    }
+
+    await this.categoryRepository.save(items);
+    console.log(`${items.length} Category seeded successfully.`);
   }
 }

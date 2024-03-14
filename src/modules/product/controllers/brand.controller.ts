@@ -31,6 +31,10 @@ export class BrandController {
     return this.brandService.findAll();
   }
 
+  @Get('/seed')
+  seed() {
+    return this.brandService.seed();
+  }
   @Get(':id')
   async findOne(@Param('id', ParseIntPipe) id: number): Promise<Brand> {
     return this.brandService.findOne(id);

@@ -39,4 +39,20 @@ export class SpecificationService {
   async remove(id: number): Promise<void> {
     await this.specificationRepository.delete(id);
   }
+  async seed() {
+    const itemsToCreate = 50;
+    const items = [];
+
+    for (let i = 0; i < itemsToCreate; i++) {
+      const item = new Specification();
+      item.group = `group ${i + 1}`;
+      item.key = `key ${i + 1}`;
+      item.value = `value ${i + 1}`;
+      // Set other properties as needed
+      items.push(item);
+    }
+
+    await this.specificationRepository.save(items);
+    console.log(`${items.length} Specification seeded successfully.`);
+  }
 }

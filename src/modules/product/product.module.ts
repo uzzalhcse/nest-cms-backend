@@ -28,6 +28,7 @@ import { BrandService } from './services/brand.service';
     SpecificationService,
     CategoryService,
     BrandService
-  ]
+  ],
+  exports: [ProductService, SpecificationService, CategoryService, BrandService]
 })
 export class ProductModule {}
