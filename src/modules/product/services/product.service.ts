@@ -62,14 +62,7 @@ export class ProductService {
       const randomBrandIndex = Math.floor(Math.random() * brands.length);
       product.brand = brands[randomBrandIndex];
 
-      // Randomly select categories and assign them to the product
-      const randomCategoryIndices = Array.from(
-        { length: Math.floor(Math.random() * categories.length) },
-        () => Math.floor(Math.random() * categories.length)
-      );
-      product.categories = randomCategoryIndices.map(
-        (index) => categories[index]
-      );
+      product.categories = [categories[1]];
 
       products.push(product);
     }

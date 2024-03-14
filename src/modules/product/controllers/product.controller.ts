@@ -11,6 +11,7 @@ import {
 } from '@nestjs/common';
 import { Product } from '../entities/product.entity';
 import { ProductService } from '../services/product.service';
+import { ApiResponse } from '../../../utils/api-response.decorator';
 
 @Controller('products')
 export class ProductController {
@@ -22,10 +23,12 @@ export class ProductController {
   }
 
   @Get()
+  @ApiResponse('Product list')
   findAll(): Promise<Product[]> {
     return this.productService.findAll();
   }
   @Get('/seed')
+  @ApiResponse('Product seed')
   seed() {
     return this.productService.seed();
   }
