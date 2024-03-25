@@ -17,6 +17,7 @@ async function bootstrap() {
       exceptionFactory: (errors) => new UnprocessableEntityException(errors)
     })
   );
-  await app.listen(3000);
+  app.enableCors();
+  await app.listen(3080);
 }
 bootstrap();
