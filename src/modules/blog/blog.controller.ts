@@ -1,12 +1,12 @@
 import {
-  Controller,
-  Get,
-  Post,
   Body,
-  Param,
+  Controller,
   Delete,
-  UploadedFile,
-  Put
+  Get,
+  Param,
+  Post,
+  Put,
+  UploadedFile
 } from '@nestjs/common';
 import { BlogService } from './blog.service';
 import { CreateBlogDto } from './dto/create-blog.dto';
@@ -38,6 +38,10 @@ export class BlogController {
     return this.blogService.findAll();
   }
 
+  @Get('/seed')
+  seed() {
+    return this.blogService.seed();
+  }
   @Get(':id')
   @ApiResponse('Blog info')
   findOne(@Param('id') id: string) {

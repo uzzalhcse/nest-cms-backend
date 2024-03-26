@@ -104,4 +104,22 @@ export class BlogService {
     // Remove the blog from the database
     await this.blogRepository.remove(blog);
   }
+
+  async seed() {
+    const itemsToCreate = 50;
+    const items = [];
+
+    for (let i = 0; i < itemsToCreate; i++) {
+      const item = new Blog();
+      item.title = `Blog ${i + 1}`;
+      item.slug = GeneratorProvider.generateSlug(item.title);
+      item.thumbnail = '/public/uploads/thumbnails/default.png';
+      item.banner = '/public/uploads/thumbnails/default.png';
+      item.description = 'lorem10';
+      items.push(item);
+    }
+
+    await this.blogRepository.save(items);
+    console.log(`${items.length} blogs seeded successfully.`);
+  }
 }
